@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <style>
+        .success {
+            color:green;
+        }
+        .info {
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        {% for fm in form %}
+        {{ fm.label_tag }} {{ fm }} {{ fm.errors|striptags }} <br/><br/>
+        {% endfor %}
+        <input type="submit" value="submit" />
+    </form>
+    {% if messages %}
+    {% for message in messages %}
+    <small {% if message.tags %} class="{{ message.tags }}" {% endif %}><br>{{ message }}{{ message.tags }}</small>
+    {% endfor %}
+    <a href="{% url 'home' %}">Add more..</a>
+    {% endif %}
+</body>
+</html>

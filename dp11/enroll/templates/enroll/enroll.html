@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<body>
+<form action="" method="get">
+    {{ form }}
+    <p>form in form tag</p>
+</form>
+<hr/>
+<table>
+    {{ form.as_table }}
+</table>
+<p>form.as_table in table</p>
+<hr/>
+<table>
+    {{ form }}
+</table>
+<p>form in table</p>
+<hr/>
+<form action="" method="get">
+    <table>
+        {{ form }}
+    </table>
+    <p> form in table and table in form</p>
+</form>
+<hr/>
+{{ form.as_table }}
+<p> form.as_table </p>
+{% for field in form %}
+{{ field.label_tag }} {{ field }} {{ field.auto_id }}<br>
+{% endfor %}
+
+</body>
+</html>

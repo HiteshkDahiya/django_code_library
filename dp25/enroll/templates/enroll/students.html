@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students</title>
+    <style>
+       th,td{
+          border: 1px solid black;
+       }
+    </style>
+</head>
+<body>
+  <h2>This is Students Details</h2>
+  <h3>Section A</h3>
+  <table>
+    {% for st in stuA %}
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+    <tr>
+      <td><a href="{% url 'details_a' st.id %}">{{ st.id }}</a></td>
+
+      <td>{{ st.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h3>Section B</h3>
+  <table>
+    {% for st in stuB %}
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+    <tr>
+      <td><a href="{% url 'details_b' st.id %}">{{ st.id }}</a></td>
+
+      <td>{{ st.name }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>

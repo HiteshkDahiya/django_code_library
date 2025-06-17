@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+</head>
+<body>
+<h2>profile page</h2>
+<h4>Welcome *{{ user.username }}*</h4>
+<form method="POST">
+    {% csrf_token %}
+    {% for field in form %}
+     <p>{{ field.label_tag }} {{ field }} {{ field.errors|striptags }}</p>
+    {% endfor %}
+    <input type="submit" value="save" />
+</form>
+{% for message in messages %}
+{{ message }}
+{% endfor %}
+<br><br>
+<a href="{% url 'changePass' %}"><input type="submit" value="change password"/></a>
+<a href="{% url 'logout' %}"><input type="submit" value="logout"/></a>
+</body>
+</html>

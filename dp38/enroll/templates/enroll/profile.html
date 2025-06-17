@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+</head>
+<body>
+<h2>This is profile page of user {{ user.username }}</h2>
+<a href="{% url 'changePass' %}"><input type="submit" value="change password"/></a>
+<a href="{% url 'logout' %}"><input type="submit" value="logout"/></a>
+</body>
+</html>

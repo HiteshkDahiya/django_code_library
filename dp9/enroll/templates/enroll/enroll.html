@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enrollment</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Stu Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+        {% for st in stu %}
+        <tr>
+            <td>{{ st.stuid }}</td>
+            <td>{{ st.stuname }}</td>
+            <td>{{ st.stuemail }}</td>
+            <td>{{ st.stupass }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

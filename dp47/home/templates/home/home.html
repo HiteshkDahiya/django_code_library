@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load cache %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<h1>content No. 1</h1>
+<h1>content No. 2</h1>
+{% cache 20 user %}
+<h1>content No. 3</h1>
+<h1>content No. 4</h1>
+{% endcache user %}
+</body>
+</html>

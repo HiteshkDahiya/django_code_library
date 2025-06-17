@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+  <style>
+    table,th,tr,td{
+      border:black,1px,solid;
+    }
+  </style>
+</head>
+<body>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>pass_key</th>
+      <th>City</th>
+      <th>salary</th>
+      <th>joined date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in Tdata %}
+    <tr>
+      <td>{{ student.id }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.pass_key }}</td>
+      <td>{{ student.city }}</td>
+      <td>{{ student.salary }}</td>
+      <td>{{ student.joined_date }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Roll</th>
+      <th>City</th>
+      <th>Marks</th>
+      <th>Passed date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for student in Sdata %}
+    <tr>
+      <td>{{ student.id }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.roll }}</td>
+      <td>{{ student.city }}</td>
+      <td>{{ student.marks }}</td>
+      <td>{{ student.passed_date }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Roll</th>
+      <th>City</th>
+      <th>Marks</th>
+      <th>Passed date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{ student.id }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.roll }}</td>
+      <td>{{ student.city }}</td>
+      <td>{{ student.marks }}</td>
+      <td>{{ student.passed_date }}</td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

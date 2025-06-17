@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Creation Form</title>
+    <style>
+        .custom -alert {
+            padding: 5px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-weight: bold;
+            transition: opacity 0.5s ease-out;
+        }
+        .success { background-color: #4CAF50; color: white; display: inline-block; } /* Green */
+        .error { background-color: #F44336; color: white; inline-block; } /* Red */
+        .warning { background-color: #FFC107; color: black; inline-block; } /* Yellow */
+        .info { background-color: #2196F3; color: white; inline-block; } /* Blue */
+    </style>
+</head>
+<body>
+<h1>Registration</h1>
+<form action="" method="POST" novalidate>
+    {% csrf_token %}
+    {% for fields in form %}
+    <p>{{ fields.label_tag }} {{ fields }} {{ fields.errors|striptags }}</p>
+    {% endfor %}
+    <input type="submit" value="sign in"/><br><br>
+</form>
+
+{% if messages %}
+<div id="message-container" >
+    {% for message in messages %}
+        <p class="custom-alert success">{{ message }}</p>
+    {% endfor %}
+</div>
+{% endif %}
+<a href="{% url 'login' %}"><input type="submit" value="log in"/></a>
+<script>
+    // Auto-remove messages after 2 seconds
+    setTimeout(function() {
+        let messageContainer = document.getElementById("message-container");
+        if (messageContainer) {
+            messageContainer.style.opacity = "0";
+            setTimeout(() => messageContainer.remove(), 500); // Remove after fade out
+        }
+    }, 5000);
+</script>
+</body>
+</html>

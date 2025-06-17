@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Page</title>
+</head>
+<body>
+<h1>This is a Profile Page of user {{ name }}</h1>
+<a href="{% url 'logout' %}">Log out</a>
+<a href="{% url 'edit_profile' %}">Edit</a>
+{% if messages %}
+{% for message in messages %}
+<small {% if message.tags %} class="{{ message.tags }}" {% endif %}><br>{{ message }}{{ message.tags }}</small>
+{% endfor %}
+{% endif %}
+</body>
+</html>

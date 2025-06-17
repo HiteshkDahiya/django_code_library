@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<body>
+  <form action="" method="get">
+    {{ form }}
+    <p>form</p>
+  </form>
+
+  <hr/>
+
+  <table>
+    {{ form.as_table }}
+  </table>
+  <p>form.as_table</p>
+
+  <hr/>
+
+  <table>
+    {{ form.as_p }}
+  </table>
+  <p>form.as_p</p>
+
+  <hr/>
+
+  <table>
+    {{ form.as_ul }}
+  </table>
+  <p>form.as_ul</p>
+
+  <hr/>
+
+  <table>
+    {{ form.name }}
+    {{ form.email }}
+  </table>
+  <p>form.name_of_field</p>
+
+  <hr/>
+</body>
+</html>

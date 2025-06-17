@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<form id="cartForm" action="{% url 'add_to_cart' %}" method="POST">
+  {% csrf_token %}
+  <input type="text" id='name' name="item_name" value="Sample Item">
+  <input type="number" id="quantity" name="item_quantity" value="1">
+  <input type="number" id="price" name="item_price" value="100">
+  <button type="submit" name="cart">Add to Cart</button>
+</form>
+<div id="response-message" style="color: green; margin-top: 10px;"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('cartForm');  // replace with your form's id
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+        formData.append("cart", "Add to Cart");
+
+        const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+
+        fetch(form.action, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrfToken,
+            },
+            body: formData
+        })
+<!--        .then(response => response.json())-->
+<!--        .then(data => {-->
+<!--            if (data.status === 'success') {-->
+<!--                alert(data.message);-->
+<!--            } else {-->
+<!--                alert('Error: ' + data.message);-->
+<!--            }-->
+<!--        })-->
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Something went wrong.');
+        });
+    });
+});
+</script>
+
+
+</body>
+</html>

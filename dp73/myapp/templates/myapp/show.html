@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show image</title>
+</head>
+<body>
+<h2>Static Images</h2>
+{% for product in products %}
+<!--<img src="{% static 'images/card-image1.jpg' %}" alt="Logo" style="height: 150px;">-->
+<h3>{{ product.name }} {{ product.image }}</h3>
+<img src="{% static 'images/' %}{{ product.image }}" alt="Logo" style="height: 150px;">
+{% endfor %}
+</body>
+</html>

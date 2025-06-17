@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Images</title>
+</head>
+<body>
+<form method="POST">
+  {% csrf_token %}
+  <input type="text" name="name" value="image no. 1"/>
+  <input type="text" name="image" value="card-image1.jpg"/>
+  <input type="submit" value="submit"/>
+</form>
+<br>
+<a href="/show/"><input type="submit" value="go to show"/></a>
+</body>
+</html>

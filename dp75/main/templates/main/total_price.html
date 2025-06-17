@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Total Price</title>
+</head>
+<body>
+<div class="product-box">
+    <div class="quantity-box">
+        <button onclick="changeQty(this, -1)">-</button>
+        <input type="number" class="quantity-input" value="1" min="1">
+        <button onclick="changeQty(this, 1)">+</button>
+    </div>
+    <div>Price: $<span class="price">10</span></div>
+    <div>Total: $<span class="total">10.00</span></div>
+</div>
+
+<!-- Grand total -->
+<div>
+    Grand Total: $<span id="grand-total">10.00</span>
+</div>
+
+<script>
+    function changeQty(button, change) {
+    const container = button.closest('.quantity-box');
+    const productBox = button.closest('.product-box');
+    const qtyInput = container.querySelector('.quantity-input');
+    const price = parseFloat(productBox.querySelector('.price').textContent);
+    const totalSpan = productBox.querySelector('.total');
+
+    let current = parseInt(qtyInput.value) || 1;
+    current += change;
+    if (current < 1) current = 1;
+
+    qtyInput.value = current;
+    totalSpan.textContent = (price * current).toFixed(2);
+
+    updateGrandTotal();
+    }
+
+    function updateGrandTotal() {
+        let grandTotal = 0;
+        document.querySelectorAll('.total').forEach(span => {
+            grandTotal += parseFloat(span.textContent) || 0;
+        });
+        document.getElementById('grand-total').textContent = grandTotal.toFixed(2);
+    }
+
+</script>
+
+</body>
+</html>

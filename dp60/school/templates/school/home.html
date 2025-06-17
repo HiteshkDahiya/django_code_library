@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home</title>
+  <style>
+    table,th,td{
+      border:1px,black,solid;
+<!--      font-size:25px;-->
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Roll NO.</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for student in students %}
+    <tr>
+      <td>{{ student.id }}</td>
+      <td>{{ student.name }}</td>
+      <td>{{ student.roll }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Registration</title>
+</head>
+<style>
+    span{
+        font-size: 10px;
+        color: red;
+        list-style-type: none;
+        margin: 0px;
+        padding: 0px;
+    }
+</style>
+<body>
+<div>
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {% for field in form %}
+        <p>{{ field.label_tag }} {{ field }}
+        {% for error in field.errors %}
+        <span>{{error|striptags}}</span>
+        {% endfor %}
+        </p>
+        {% endfor %}
+        <input type="submit" value="submit"/>
+    </form>
+    {% for error in form.non_field_errors %}
+    <P>{{error}}</P>
+    {% endfor %}
+
+</div>
+</body>
+</html>

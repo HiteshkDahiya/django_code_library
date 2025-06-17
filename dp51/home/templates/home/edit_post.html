@@ -1,0 +1,15 @@
+{% extends 'home/base.html' %}
+{% block content %}
+<div class="container">
+    <h4 class="alert alert-info text-center">Add new Post</h4>
+    <form class="form-group mt-5" method="POST">
+        {% csrf_token %}
+        <b>Title: </b><input class='form-control mt-3' type="text" name='title' value="{{post.title}}" placeholder="Enter your title" /><br>
+        <b>Description: </b><textarea class='form-control mt-3' style="height:300px;"  name='disc' placeholder="Enter your description">{{post.disc}}</textarea>
+        <div>
+            <input class='btn btn-success mt-2 mx-2' type="submit" value="save">
+            <a href='/dashboard' class="btn btn-dark mt-2">Go back</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

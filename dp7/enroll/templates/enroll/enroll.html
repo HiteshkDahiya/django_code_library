@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <style>
+         th,td{
+            border: 2px solid black;
+         }
+     </style>
+    <title>Enrollment</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Stu. ID</td>
+        </tr>
+        {% for st in stu %}
+        <tr>
+            <td><a href="details/{{ st.id }}" >{{ st.stuid }}</a></td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>

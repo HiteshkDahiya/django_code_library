@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>home</title>
+    <style>
+        table,th,td{
+            border:1px,black,solid;
+        }
+    </style>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Roll</th>
+        <th>Center Name</th>
+        <th>City</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for stu in mdata %}
+    <tr>
+        <th>{{ stu.id }}</th>
+        <td>{{ stu.name }}</td>
+        <td>{{ stu.roll }}</td>
+        <td>{{ stu.cname }}</td>
+        <td>{{ stu.city }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
