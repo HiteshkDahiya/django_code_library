@@ -23,6 +23,6 @@ from myapp import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('',views.TemplateView.as_view(template_name='myapp/home.html'))
-    # path('<int:cl>/',views.MyTemplateView.as_view(extra_context={'course':'python'}))
-    path('<int:cl>/',views.MyTemplateView.as_view())
+    path('<int:cl>/',views.MyTemplateView.as_view(extra_context={'course':'python'}))
+    # path('<int:cl>/',views.MyTemplateView.as_view())
 ]

@@ -21,6 +21,8 @@ def get_session(request):
 
 
 def delete_session(request):
+    # del request.session['name']
+    # request.session.clear()
     request.session.flush()
     return render(request, 'student/del_session.html')
 
